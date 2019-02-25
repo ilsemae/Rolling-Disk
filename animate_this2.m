@@ -62,6 +62,5 @@ function animate_this2(tarray,qarray,tarray2,qarray2,x_drawer0,y_drawer0,z_drawe
         v.FrameRate = 40;
         open(v);
         writeVideo(v,F);
-%         movie2avi(F,'disk_animation.avi','fps',40);
 
 end

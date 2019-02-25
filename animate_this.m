@@ -6,7 +6,7 @@ function animate_this(tarray,qarray,x_drawer0,y_drawer0,z_drawer0,steps,r)
 
         figure(1);
         set(gcf,'color','white');
-        %F = [];
+        F = [];
         contact_positions = [qarray(:,1) , qarray(:,2)] + r*[-sin(qarray(:,5)).*cos(qarray(:,4)) , -sin(qarray(:,5)).*sin(qarray(:,4))];
 
         for i=1:steps
@@ -39,9 +39,12 @@ function animate_this(tarray,qarray,x_drawer0,y_drawer0,z_drawer0,steps,r)
             xlabel('e1'); ylabel('e2'); zlabel('e3');
             shg;
             
-            %F = [F getframe(1)];
+            F = [F getframe(1)];
         end
-        %movie2avi(F,'disk_animation.avi','fps',30);
+        v = VideoWriter('disk_animation.avi','Motion JPEG AVI');
+        v.FrameRate = 40;
+        open(v);
+        writeVideo(v,F);
         
         
 end
