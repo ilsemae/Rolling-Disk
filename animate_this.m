@@ -24,7 +24,7 @@ function animate_this(tarray,qarray,x_drawer0,y_drawer0,z_drawer0,steps,r)
             draw = R_t*[x_drawer0                         ; y_drawer0                         ; z_drawer0] ...
                      + [rG_t(1)*ones(1,size(x_drawer0,2)) ; rG_t(2)*ones(1,size(x_drawer0,2)) ; rG_t(3)*ones(1,size(x_drawer0,2))];
 
-            s = 400;
+            s = 1200;
             fill3([-s s s -s],[-s -s s s],[0 0 0 0],'white');
             hold on;
             plot3(draw(1,:),draw(2,:),draw(3,:),'black'); % plot moved disk
@@ -35,7 +35,7 @@ function animate_this(tarray,qarray,x_drawer0,y_drawer0,z_drawer0,steps,r)
             plot3(contact_positions(1:i,1),contact_positions(1:i,2),zeros(i,1));
             %plot3(qarray(:,1),qarray(:,2),zeros(steps,1),'r');
 
-            axis equal; grid on; axis([-s s -s s 0 s/4]);
+            axis equal; grid on; axis([-s s -s s 0 s/6]);
             xlabel('e1'); ylabel('e2'); zlabel('e3');
             shg;
             

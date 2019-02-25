@@ -1,3 +1,4 @@
+% to animate two disks at once
 function animate_this2(tarray,qarray,tarray2,qarray2,x_drawer0,y_drawer0,z_drawer0,steps,r)
 
         e1 = [1 0 0]';
@@ -6,7 +7,7 @@ function animate_this2(tarray,qarray,tarray2,qarray2,x_drawer0,y_drawer0,z_drawe
 
         figure(1);
         set(gcf,'color','white');
-        %F = [];
+        F = [];
         contact_positions = [qarray(:,1) , qarray(:,2)] + r*[-sin(qarray(:,5)).*cos(qarray(:,4)) , -sin(qarray(:,5)).*sin(qarray(:,4))];
         contact_positions2 = [qarray2(:,1) , qarray2(:,2)] + r*[-sin(qarray2(:,5)).*cos(qarray2(:,4)) , -sin(qarray2(:,5)).*sin(qarray2(:,4))];
         
@@ -49,14 +50,18 @@ function animate_this2(tarray,qarray,tarray2,qarray2,x_drawer0,y_drawer0,z_drawe
             fill3(draw_s(1,3:102),draw_s(2,3:102),draw_s(3,3:102),'c');
             fill3(draw_s(1,104:203),draw_s(2,104:203),draw_s(3,104:203),'m');
             plot3(contact_positions2(1:i,1),contact_positions2(1:i,2),zeros(i,1));
-            axis equal; grid on; axis([-s s -s s 0 s]);
+            axis equal; grid on; axis([-s s -s s 0 s/2]);
             xlabel('e1'); ylabel('e2'); zlabel('e3');
             shg;
             
-            %F = [F getframe(1)];
+            F = [F getframe(1)];
 
         end
         
-        %movie2avi(F,'disk_animation.avi','fps',40);
+        v = VideoWriter('disk_animation.avi','Motion JPEG AVI');
+        v.FrameRate = 40;
+        open(v);
+        writeVideo(v,F);
+%         movie2avi(F,'disk_animation.avi','fps',40);
 
 end
