@@ -15,6 +15,7 @@ xyz_plot      = false;
 
 % get trajectories
 % [xy0 EulerAngs0 EulerAngsDot0] = rolling_in_circles_v2(1000,radius,pi/4, mass,thickness); % first number is radius of circle path. Third number is tilt angle of disk while precessing
+[xy0 EulerAngs0 EulerAngsDot0] = spinning_in_circles_v2(1000,radius,pi/4, mass,thickness); % first number is radius of circle path. Third number is tilt angle of disk while precessing
 [ t , q ] = disk_rolling_on_ground(mass,[radius thickness],tot_time,steps,xy0,EulerAngs0',EulerAngsDot0',animate,eng_consv,reload_derive,tolerance,xyz_plot);
 % [ t2 , q2 ] = disk_rolling_on_ground(mass,[radius thickness],tot_time,steps,-xy0,-EulerAngs0',-EulerAngsDot0',animate,eng_consv,reload_derive,tolerance,xyz_plot);
 % [ t , q ] = disk_sliding_on_ground(mass,[radius thickness],tot_time,steps,xy0,[vxy0_sliding 0]',EulerAngs0',EulerAngsDot0',animate,eng_consv,reload_derive,tolerance,xyz_plot);

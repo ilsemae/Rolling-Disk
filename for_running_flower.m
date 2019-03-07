@@ -1,7 +1,7 @@
 mass          = 5;
 radius        = 60;
 thickness     = .1;
-switch_expression = 'tri_pretty_2'; % flower, tri_pretty, wobble_roll, or tri_pretty_2
+switch_expression = 'wobble_roll'; % flower, tri_pretty, wobble_roll, or tri_pretty_2
 
 switch switch_expression
     case 'flower'
